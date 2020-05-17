@@ -7,8 +7,8 @@
   "repository": "https://github.com/rightparen/nom-date",
   "author": "Michael Marucheck <rightparen@users.noreply.github.com>",
   "license": "MIT",
-  "prepublish": "tsc",
   "scripts": {
+    "prepublish": "tsc",
     "test": "jest --no-watchman --detectOpenHandles --forceExit --maxWorkers=1 --verbose"
   },
   "devDependencies": {
