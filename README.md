@@ -85,6 +85,37 @@ Returns an `EpochMs` representing the current moment in time.
 
 Converts a valid `DateLike` to `EpochMs`.
 
+## DurationCalc
+
+A namespace of functions for calculating with `DurationMs` and `EpochMs`.
+
+### offset(base: EpochMs, duration: DurationMs): EpochMs
+
+Returns `base + duration`, works for negative values.
+
+### between(start: EpochMs, end: EpochMs): DurationMs
+
+Returns `end - start`, works for negative values.
+Note the order is opposite subtraction--if the earlier `EpochMs` comes first the result is positive.
+
+### sum(...durations: DurationMs[]): DurationMs
+
+Returns the sum of zero or more `DurationMs`.
+
+### negate(duration: DurationMs): DurationMs
+
+Negates a `DurationMs`.
+
+### max<T extends DurationMs | EpochMs>(...xs: T[]): T
+
+Returns the maximum of `DurationMs`s or `EpochMs`s.
+Note, arguments must all be of the same type.
+
+### min<T extends DurationMs | EpochMs>(...xs: T[]): T
+
+Returns the minimum of `DurationMs`s or `EpochMs`s.
+Note, arguments must all be of the same type.
+
 ## CalendarDay
 
 `CalendarDay` is a type for `string`s that represents a particular calendar day in the form "YYYY-MM-DD".
