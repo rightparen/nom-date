@@ -26,3 +26,7 @@ export function timestampOrNull(x: string): Timestamp | null {
 export function timestampOrThrow(x: string): Timestamp {
   return isTimestamp(x) ? x : fail(`Unexpected timestamp format: '${x}'`);
 }
+
+export function nowTimestamp(): Timestamp {
+  return new Date().toISOString() as Timestamp;
+}

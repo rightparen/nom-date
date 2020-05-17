@@ -21,7 +21,6 @@ import {
   toEpochMs,
   DurationMs,
   DurationCalc,
-  EpochMs,
 } from "../src/EpochMs";
 import {
   clampEpochMs,
@@ -200,7 +199,7 @@ describe("NomDate", () => {
     });
   });
 
-  const { offset, between, sum, negate } = DurationCalc;
+  const { offset, between, sum, negate, min, max } = DurationCalc;
   const start = toEpochMs("2020-05-16T23:49:19.929Z");
   const end = toEpochMs("2020-05-16T23:49:32.704Z");
   const duration = (end - start) as DurationMs;
@@ -230,6 +229,20 @@ describe("NomDate", () => {
     it("negates durations", () => {
       expect(negate(duration)).toEqual(negDuration);
       expect(negate(negDuration)).toEqual(duration);
+    });
+  });
+
+  describe("min", () => {
+    it("minimizes", () => {
+      expect(min(start, end)).toEqual(start);
+      expect(min(duration, negDuration)).toEqual(negDuration);
+    });
+  });
+
+  describe("max", () => {
+    it("minimizes", () => {
+      expect(max(start, end)).toEqual(end);
+      expect(max(duration, negDuration)).toEqual(duration);
     });
   });
 

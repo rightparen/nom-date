@@ -11,6 +11,7 @@ export {
   toTimestamp,
   timestampOrNull,
   timestampOrThrow,
+  nowTimestamp,
 } from "./Timestamp";
 
 export {
@@ -25,6 +26,7 @@ export {
   EpochMs,
   isEpochMs,
   toEpochMs,
+  nowEpochMs,
   DurationCalc,
 } from "./EpochMs";
 

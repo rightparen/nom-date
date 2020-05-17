@@ -61,6 +61,10 @@ export function toEpochMs(x: DateLike): EpochMs {
   }
 }
 
+export function nowEpochMs(): EpochMs {
+  return new Date().getTime() as EpochMs;
+}
+
 // These are probably more trouble than they're worth..
 export namespace DurationCalc {
   export function offset(base: EpochMs, duration: DurationMs): EpochMs {
@@ -77,5 +81,13 @@ export namespace DurationCalc {
 
   export function negate(duration: DurationMs): DurationMs {
     return asDurationMs(-duration);
+  }
+
+  export function max<T extends DurationMs | EpochMs>(...xs: T[]): T {
+    return Math.max(...xs) as T;
+  }
+
+  export function min<T extends DurationMs | EpochMs>(...xs: T[]): T {
+    return Math.min(...xs) as T;
   }
 }
