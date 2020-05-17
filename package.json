@@ -8,7 +8,7 @@
   "author": "Michael Marucheck <rightparen@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
-    "prepublish": "tsc && yarn test",
+    "prepack": "yarn install --frozen-lockfile && tsc && yarn test",
     "test": "jest --no-watchman --detectOpenHandles --forceExit --maxWorkers=1 --verbose"
   },
   "devDependencies": {
