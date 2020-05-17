@@ -1,6 +1,6 @@
 # Nominal Date Types
 
-NOTE: this is not yet stable, please don't use yet. Still learning how to use `yarn publish` and experimenting with the best API here. Patch versions will include breaking changes for now. Sorry I should have started with v0.0.0 but I followed the wrong advice.
+NOTE: this is not yet stable, please don't use yet. Still learning how to use `yarn publish` and experimenting with the best API here. Patch versions may include breaking changes for now.
 
 A library of TypeScript types related to Javascript Date.
 
