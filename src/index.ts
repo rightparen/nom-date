@@ -8,7 +8,7 @@ export { DateLike, toDate } from "./DateLike";
 export {
   Timestamp,
   isTimestamp,
-  timestamp,
+  toTimestamp,
   timestampOrNull,
   timestampOrThrow,
 } from "./Timestamp";
@@ -24,7 +24,7 @@ export {
   durationMs,
   EpochMs,
   isEpochMs,
-  epochMs,
+  toEpochMs,
   DurationCalc,
 } from "./EpochMs";
 
@@ -37,13 +37,13 @@ export {
   isDay,
   dayOrNull,
   dayOrThrow,
-  utcDay,
+  toUtcDay,
   isMonth,
   monthOrNull,
   monthOrThrow,
-  utcMonth,
+  toUtcMonth,
   isYear,
   yearOrNull,
   yearOrThrow,
-  utcYear,
+  toUtcYear,
 } from "./CalendarTypes";

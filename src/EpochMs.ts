@@ -50,7 +50,7 @@ function asEpochMs(n: number): EpochMs {
   return n as EpochMs;
 }
 
-export function epochMs(x: DateLike): EpochMs {
+export function toEpochMs(x: DateLike): EpochMs {
   switch (typeof x) {
     case "number":
       return asEpochMs(x);

@@ -6,7 +6,7 @@
 import { DateLike, toDate } from "../src/DateLike";
 import {
   isTimestamp,
-  timestamp,
+  toTimestamp,
   timestampOrNull,
   timestampOrThrow,
 } from "../src/Timestamp";
@@ -18,7 +18,7 @@ import {
   MINUTE_MS,
   SECOND_MS,
   isEpochMs,
-  epochMs,
+  toEpochMs,
   DurationMs,
   DurationCalc,
 } from "../src/EpochMs";
@@ -26,15 +26,15 @@ import {
   isDay,
   dayOrThrow,
   dayOrNull,
-  utcDay,
+  toUtcDay,
   isMonth,
   monthOrThrow,
   monthOrNull,
-  utcMonth,
+  toUtcMonth,
   isYear,
   yearOrThrow,
   yearOrNull,
-  utcYear,
+  toUtcYear,
 } from "../src/CalendarTypes";
 
 describe("NomDate", () => {
@@ -113,9 +113,9 @@ describe("NomDate", () => {
     });
   });
 
-  describe("timestamp", () => {
+  describe("toTimestamp", () => {
     it("returns equivalient Timestamp", () => {
-      nowForms.forEach(x => expect(timestamp(x)).toEqual(nowIso));
+      nowForms.forEach(x => expect(toTimestamp(x)).toEqual(nowIso));
     });
   });
 
@@ -190,15 +190,15 @@ describe("NomDate", () => {
     });
   });
 
-  describe("epochMs", () => {
+  describe("toEpochMs", () => {
     it("returns equivalent EpochMs", () => {
-      nowForms.forEach(x => expect(epochMs(x)).toEqual(nowMs));
+      nowForms.forEach(x => expect(toEpochMs(x)).toEqual(nowMs));
     });
   });
 
   const { offset, between, sum, negate } = DurationCalc;
-  const start = epochMs("2020-05-16T23:49:19.929Z");
-  const end = epochMs("2020-05-16T23:49:32.704Z");
+  const start = toEpochMs("2020-05-16T23:49:19.929Z");
+  const end = toEpochMs("2020-05-16T23:49:32.704Z");
   const duration = (end - start) as DurationMs;
   const negDuration = (start - end) as DurationMs;
 
@@ -269,9 +269,9 @@ describe("NomDate", () => {
     });
   });
 
-  describe("utcDay", () => {
+  describe("toUtcDay", () => {
     it("converts different forms of Date", () => {
-      nowForms.forEach(x => expect(utcDay(x)).toEqual(nowDay));
+      nowForms.forEach(x => expect(toUtcDay(x)).toEqual(nowDay));
     });
   });
 
@@ -316,9 +316,9 @@ describe("NomDate", () => {
     });
   });
 
-  describe("utcMonth", () => {
+  describe("toUtcMonth", () => {
     it("converts different forms of Date", () => {
-      nowForms.forEach(x => expect(utcMonth(x)).toEqual(nowMonth));
+      nowForms.forEach(x => expect(toUtcMonth(x)).toEqual(nowMonth));
     });
   });
 
@@ -356,9 +356,9 @@ describe("NomDate", () => {
     });
   });
 
-  describe("utcYear", () => {
+  describe("toUtcYear", () => {
     it("converts different forms of Date", () => {
-      nowForms.forEach(x => expect(utcYear(x)).toEqual(nowYear));
+      nowForms.forEach(x => expect(toUtcYear(x)).toEqual(nowYear));
     });
   });
 });

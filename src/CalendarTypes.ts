@@ -5,16 +5,16 @@
 
 import { fail } from "./internal";
 import { DateLike, toDate } from "./DateLike";
-import { timestamp } from "./Timestamp";
-import { epochMs } from "./EpochMs";
+import { toTimestamp } from "./Timestamp";
+import { toEpochMs } from "./EpochMs";
 
 // A range of dates in which years are 4 digits.
 // Pessimistic because Date parses year="0001" as 1901.
-export const MIN_DATE = timestamp(new Date("1000-01-01"));
-export const MAX_DATE = timestamp(new Date("9999-12-31"));
+export const MIN_DATE = toTimestamp(new Date("1000-01-01"));
+export const MAX_DATE = toTimestamp(new Date("9999-12-31"));
 
-export const MIN_EPOCH_MS = epochMs(MIN_DATE);
-export const MAX_EPOCH_MS = epochMs(MAX_DATE);
+export const MIN_EPOCH_MS = toEpochMs(MIN_DATE);
+export const MAX_EPOCH_MS = toEpochMs(MAX_DATE);
 
 // --------------------------------------------------------------
 // Day
@@ -52,7 +52,7 @@ export function dayOrThrow(x: string): CalendarDay {
   return isDay(x) ? x : fail(`Not a valid day: '${x}'`);
 }
 
-export function utcDay(x: DateLike): CalendarDay {
+export function toUtcDay(x: DateLike): CalendarDay {
   return isDay(x) ? x : (dayString(x) as CalendarDay);
 }
 
@@ -78,7 +78,7 @@ export function monthOrThrow(x: string): CalendarMonth {
   return isMonth(x) ? x : fail(`Not a valid month: '${x}'`);
 }
 
-export function utcMonth(x: DateLike): CalendarMonth {
+export function toUtcMonth(x: DateLike): CalendarMonth {
   return isMonth(x)
     ? x
     : (toDate(x).toISOString().substring(0, 7) as CalendarMonth);
@@ -102,7 +102,7 @@ export function yearOrThrow(x: string): CalendarYear {
   return isYear(x) ? x : fail(`Not a valid year: '${x}'`);
 }
 
-export function utcYear(x: DateLike): CalendarYear {
+export function toUtcYear(x: DateLike): CalendarYear {
   return isYear(x)
     ? x
     : (toDate(x).toISOString().substring(0, 4) as CalendarYear);

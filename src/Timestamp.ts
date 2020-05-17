@@ -15,7 +15,7 @@ export function isTimestamp(x: any): x is Timestamp {
   return typeof x === "string" && TIMESTAMP_REGEX.test(x);
 }
 
-export function timestamp(x: DateLike): Timestamp {
+export function toTimestamp(x: DateLike): Timestamp {
   return timestampOrThrow(toDate(x).toISOString());
 }
 
