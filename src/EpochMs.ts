@@ -29,13 +29,13 @@ export interface DurationSpec {
   ms?: number;
 }
 
-export function durationMs(spec: DurationSpec) {
-  return (
+export function durationMs(spec: DurationSpec): DurationMs {
+  return asDurationMs(
     (spec.days || 0) * DAY_MS +
-    (spec.hours || 0) * HOUR_MS +
-    (spec.minutes || 0) * MINUTE_MS +
-    (spec.seconds || 0) * SECOND_MS +
-    (spec.ms || 0)
+      (spec.hours || 0) * HOUR_MS +
+      (spec.minutes || 0) * MINUTE_MS +
+      (spec.seconds || 0) * SECOND_MS +
+      (spec.ms || 0),
   );
 }
 
