@@ -205,7 +205,7 @@ describe("NomDate", () => {
   const duration = (end - start) as DurationMs;
   const negDuration = (start - end) as DurationMs;
 
-  describe("after", () => {
+  describe("offset", () => {
     it("adds", () => {
       expect(offset(start, duration)).toEqual(end);
       expect(offset(end, negDuration)).toEqual(start);
