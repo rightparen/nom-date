@@ -6,7 +6,7 @@
 import { fail } from "./internal";
 import { DateLike, toDate } from "./DateLike";
 import { toTimestamp } from "./Timestamp";
-import { toEpochMs } from "./EpochMs";
+import { EpochMs, toEpochMs } from "./EpochMs";
 
 // A range of dates in which years are 4 digits.
 // Pessimistic because Date parses year="0001" as 1901.
@@ -15,6 +15,16 @@ export const MAX_DATE = toTimestamp(new Date("9999-12-31"));
 
 export const MIN_EPOCH_MS = toEpochMs(MIN_DATE);
 export const MAX_EPOCH_MS = toEpochMs(MAX_DATE);
+
+export function clampEpochMs(ms: number): EpochMs {
+  if (ms < MIN_EPOCH_MS) {
+    return MIN_EPOCH_MS;
+  }
+  if (ms > MAX_EPOCH_MS) {
+    return MAX_EPOCH_MS;
+  }
+  return ms as EpochMs;
+}
 
 // --------------------------------------------------------------
 // Day

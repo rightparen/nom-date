@@ -21,8 +21,10 @@ import {
   toEpochMs,
   DurationMs,
   DurationCalc,
+  EpochMs,
 } from "../src/EpochMs";
 import {
+  clampEpochMs,
   isDay,
   dayOrThrow,
   dayOrNull,
@@ -35,6 +37,8 @@ import {
   yearOrThrow,
   yearOrNull,
   toUtcYear,
+  MAX_EPOCH_MS,
+  MIN_EPOCH_MS,
 } from "../src/CalendarTypes";
 
 describe("NomDate", () => {
@@ -226,6 +230,14 @@ describe("NomDate", () => {
     it("negates durations", () => {
       expect(negate(duration)).toEqual(negDuration);
       expect(negate(negDuration)).toEqual(duration);
+    });
+  });
+
+  describe("clampEpochMs", () => {
+    it("clamps EpochMs", () => {
+      expect(clampEpochMs(MAX_EPOCH_MS + 1)).toEqual(MAX_EPOCH_MS);
+      expect(clampEpochMs(MIN_EPOCH_MS - 1)).toEqual(MIN_EPOCH_MS);
+      expect(clampEpochMs(nowMs)).toEqual(nowMs);
     });
   });
 

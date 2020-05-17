@@ -33,6 +33,7 @@ export {
   MAX_DATE,
   MIN_EPOCH_MS,
   MAX_EPOCH_MS,
+  clampEpochMs,
   CalendarDay,
   isDay,
   dayOrNull,
