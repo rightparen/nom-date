@@ -62,7 +62,7 @@ export function toEpochMs(x: DateLike): EpochMs {
 }
 
 export function nowEpochMs(): EpochMs {
-  return new Date().getTime() as EpochMs;
+  return Date.now() as EpochMs;
 }
 
 // These are probably more trouble than they're worth..
