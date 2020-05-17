@@ -21,7 +21,7 @@ export const MINUTE_MS = asDurationMs(60 * SECOND_MS);
 export const HOUR_MS = asDurationMs(60 * MINUTE_MS);
 export const DAY_MS = asDurationMs(24 * HOUR_MS);
 
-interface DurationSpec {
+export interface DurationSpec {
   days?: number;
   hours?: number;
   minutes?: number;
