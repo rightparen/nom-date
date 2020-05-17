@@ -1,0 +1,41 @@
+{
+  "name": "nom-date",
+  "version": "1.0.0",
+  "description": "A library of types related to Javascript Date",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "https://github.com/rightparen/nom-date",
+  "author": "Michael Marucheck <rightparen@users.noreply.github.com>",
+  "license": "MIT",
+  "prepublish": "tsc",
+  "scripts": {
+    "test": "jest --no-watchman --detectOpenHandles --forceExit --maxWorkers=1 --verbose"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.2.2",
+    "jest": "^26.0.1",
+    "ts-jest": "^26.0.0",
+    "typescript": "^3.9.2"
+  },
+  "jest": {
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.json"
+      }
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/build/"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "testMatch": [
+      "**/test/**/*.test.(ts|js)"
+    ]
+  }
+}
