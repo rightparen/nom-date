@@ -156,9 +156,9 @@ Returns `x` if it represents a valid `CalendarDay` string, and throws otherwise.
 
 ### toUtcDay(x: DateLike): CalendarDay
 
-Converts a valid `DateLike` to `Timestamp`.
+Converts a valid `DateLike` to `CalendarDay`.
 
 ## CalendarMonth and CalendarYear
 
 Experimental.
-These have the same semantics as `CalendarDay` except for month and year respectively, and supports the same set of functions.
+These have the same semantics as `CalendarDay` except for month and year respectively, and support the same set of functions.
