@@ -1,3 +1,5 @@
+![cute animal nomming on carrot](nomnomnom.jpg)
+
 # Nominal Date Types
 
 NOTE: this is not yet stable, please assume that patch versions may include breaking changes. Still experimenting with the API here.
