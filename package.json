@@ -17,6 +17,11 @@
     "ts-jest": "^26.0.0",
     "typescript": "^3.9.2"
   },
+  "files": [
+    "LICENSE",
+    "package.json",
+    "dist"
+  ],
   "jest": {
     "globals": {
       "ts-jest": {
