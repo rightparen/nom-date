@@ -1,6 +1,6 @@
 {
   "name": "nom-date",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A library of types related to Javascript Date",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
