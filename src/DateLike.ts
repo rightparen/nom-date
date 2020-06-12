@@ -9,7 +9,7 @@
 // * Date.getTime()
 export type DateLike = Date | string | number;
 
-export function toDate(x: DateLike): Date {
+export function toDateUTC(x: DateLike): Date {
   switch (typeof x) {
     case "number":
       return new Date(x);
@@ -19,3 +19,6 @@ export function toDate(x: DateLike): Date {
       return x as Date;
   }
 }
+
+// @deprecated renamed to `toDateUTC` to clarify tz when converting CalendarDay
+export const toDate = toDateUTC;

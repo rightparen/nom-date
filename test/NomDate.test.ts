@@ -3,7 +3,7 @@
 // Use of this source code is governed by an MIT-style license that
 // can be found in the LICENSE file distributed with this file.
 
-import { DateLike, toDate } from "../src/DateLike";
+import { DateLike, toDateUTC } from "../src/DateLike";
 import {
   isTimestamp,
   toTimestamp,
@@ -97,9 +97,9 @@ describe("NomDate", () => {
   const nonStrings = [undefined, null, true, false, 42, {}, []];
   const nonTimestamps = [...nonTimestampStrings, ...nonStrings];
 
-  describe("toDate", () => {
+  describe("toDateUTC", () => {
     it("returns equivalent Date", () => {
-      nowForms.forEach(x => expect(toDate(x)).toEqual(now));
+      nowForms.forEach(x => expect(toDateUTC(x)).toEqual(now));
     });
   });
 

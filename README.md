@@ -2,8 +2,6 @@
 
 # Nominal Date Types
 
-NOTE: this is not yet stable, please assume that patch versions may include breaking changes. Still experimenting with the API here.
-
 A library of TypeScript types related to Javascript Date.
 
 The types add type safety to various strings and numbers used to serialize or calculate with Date values.
@@ -16,7 +14,7 @@ This library has no runtime dependencies.
 This is a union type of built-in representations of a moment in time.
 It includes `Date`, `number` of milliseconds since UNIX epoch, and `string` ISO timestamps.
 
-### toDate(x: DateLike): Date
+### toDateUTC(x: DateLike): Date
 
 Returns or constructs a `Date` object from `DateLike`.
 
