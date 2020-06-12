@@ -3,11 +3,10 @@
 // Use of this source code is governed by an MIT-style license that
 // can be found in the LICENSE file distributed with this file.
 
-import { fail } from "./internal";
+import { fail, Brand } from "./internal";
 import { DateLike, toDate } from "./DateLike";
 
-enum TimestampBrand {}
-export type Timestamp = string & TimestampBrand;
+export type Timestamp = string & Brand<"Timestamp">;
 
 const TIMESTAMP_REGEX = /^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}(:[0-9]{2}(\.[0-9]+)?)?Z$/;
 

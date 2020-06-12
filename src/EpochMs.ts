@@ -4,9 +4,10 @@
 // can be found in the LICENSE file distributed with this file.
 
 import { DateLike } from "./DateLike";
+import { Brand } from "./internal";
 
 // Milliseconds used as duration
-export type DurationMs = number & { _brand_DurationMs: any };
+export type DurationMs = number & Brand<"DurationMs">;
 
 export function isDurationMs(x: any): x is DurationMs {
   return typeof x === "number";
@@ -40,7 +41,7 @@ export function durationMs(spec: DurationSpec): DurationMs {
 }
 
 // Milliseconds since UNIX epoch (like `Date.now()`)
-export type EpochMs = number & { _brand_EpochMs: any };
+export type EpochMs = number & Brand<"EpochMs">;
 
 export function isEpochMs(x: any): x is EpochMs {
   return typeof x === "number";

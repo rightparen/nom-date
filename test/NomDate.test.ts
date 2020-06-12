@@ -9,6 +9,7 @@ import {
   toTimestamp,
   timestampOrNull,
   timestampOrThrow,
+  Timestamp,
 } from "../src/Timestamp";
 import {
   isDurationMs,
@@ -21,6 +22,7 @@ import {
   toEpochMs,
   DurationMs,
   DurationCalc,
+  EpochMs,
 } from "../src/EpochMs";
 import {
   clampEpochMs,
@@ -38,7 +40,61 @@ import {
   toUtcYear,
   MAX_EPOCH_MS,
   MIN_EPOCH_MS,
+  CalendarDay,
+  CalendarMonth,
+  CalendarYear,
 } from "../src/CalendarTypes";
+
+// This interface is only used to make the TypeScript compiler perform various
+// static type checks.
+interface TypeAssertions {
+  // This index signature means that every type below must evaluate to "good".
+  [key: string]: "good";
+
+  ///////////////////////////////////////////////////////////////////
+  // Type assignments that should NOT be valid
+  ///////////////////////////////////////////////////////////////////
+
+  // For example, a CalendarDay cannot be assigned to a CalendarMonth:
+  dayMonth: CalendarDay extends CalendarMonth ? "bad" : "good";
+  dayYear: CalendarDay extends CalendarYear ? "bad" : "good";
+  dayTime: CalendarDay extends Timestamp ? "bad" : "good";
+  monthDay: CalendarMonth extends CalendarDay ? "bad" : "good";
+  yearDay: CalendarYear extends CalendarDay ? "bad" : "good";
+  timeDay: Timestamp extends CalendarDay ? "bad" : "good";
+
+  // A string cannot be assigned to a Calendar* or Timestamp:
+  strDay: string extends CalendarDay ? "bad" : "good";
+  strMonth: string extends CalendarDay ? "bad" : "good";
+  strYear: string extends CalendarDay ? "bad" : "good";
+  strTime: string extends Timestamp ? "bad" : "good";
+
+  // A number cannot be assigned to a millisecond type:
+  numDur: number extends DurationMs ? "bad" : "good";
+  numEpoch: number extends EpochMs ? "bad" : "good";
+
+  // Millisecond and Calendar* types are not compatible:
+  durDay: DurationMs extends CalendarDay ? "bad" : "good";
+  dayDur: CalendarDay extends DurationMs ? "bad" : "good";
+
+  // DurationMs and EpochMs are not compatible:
+  durEpoch: DurationMs extends EpochMs ? "bad" : "good";
+  epochDur: EpochMs extends DurationMs ? "bad" : "good";
+
+  ///////////////////////////////////////////////////////////////////
+  // Type assignments that SHOULD be valid
+  ///////////////////////////////////////////////////////////////////
+
+  // Calendar* and Timestamp types can be used as strings:
+  dayStr: CalendarDay extends string ? "good" : "bad";
+  monthStr: CalendarMonth extends string ? "good" : "bad";
+  yearStr: CalendarYear extends string ? "good" : "bad";
+  timeStr: Timestamp extends string ? "good" : "bad";
+
+  // Time types can be used as numbers:
+  durNum: DurationMs extends number ? "good" : "bad";
+  epochNum: EpochMs extends number ? "good" : "bad";
+}
 
 describe("NomDate", () => {
   const now = new Date(2020, 5 - 1, 16, 14, 47);
