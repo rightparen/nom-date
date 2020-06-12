@@ -6,3 +6,14 @@
 export function fail(message: string): never {
   throw Error(message);
 }
+
+export class Brand<K extends string> {
+  // NOTE: This must be protected, not private.  If it's private, the TypeScript
+  // compiler will erase the type of _brand_ from the type declaration (.d.ts)
+  // file.  And without this type, Brand<"foo"> and Brand<"bar"> would be
+  // compatible types!
+  protected _brand_: K;
+  constructor() {
+    fail("Not constructable");
+  }
+}

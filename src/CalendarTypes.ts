@@ -3,7 +3,7 @@
 // Use of this source code is governed by an MIT-style license that
 // can be found in the LICENSE file distributed with this file.
 
-import { fail } from "./internal";
+import { fail, Brand } from "./internal";
 import { DateLike, toDate } from "./DateLike";
 import { toTimestamp } from "./Timestamp";
 import { EpochMs, toEpochMs } from "./EpochMs";
@@ -29,8 +29,7 @@ export function clampEpochMs(ms: number): EpochMs {
 // --------------------------------------------------------------
 // Day
 
-enum CalendarDayBrand {}
-export type CalendarDay = string & CalendarDayBrand;
+export type CalendarDay = string & Brand<"CalendarDay">;
 
 const CALENDAR_DAY_REGEX = /^([0-9]{4})-([0-9]{2})-([0-9]{2})$/;
 
@@ -73,8 +72,7 @@ function dayString(x: DateLike): string {
 // --------------------------------------------------------------
 // Month
 
-enum CalendarMonthBrand {}
-export type CalendarMonth = string & CalendarMonthBrand;
+export type CalendarMonth = string & Brand<"CalendarMonth">;
 
 export function isMonth(x: any): x is CalendarMonth {
   return typeof x === "string" && isDay(`${x}-01`);
@@ -97,8 +95,7 @@ export function toUtcMonth(x: DateLike): CalendarMonth {
 // --------------------------------------------------------------
 // Year
 
-enum CalendarYearBrand {}
-export type CalendarYear = string & CalendarYearBrand;
+export type CalendarYear = string & Brand<"CalendarYear">;
 
 export function isYear(x: any): x is CalendarYear {
   return typeof x === "string" && isDay(`${x}-01-01`);
